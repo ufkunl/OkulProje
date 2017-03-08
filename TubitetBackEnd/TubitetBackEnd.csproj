@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterPage.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.aspx.cs">
+      <DependentUpon>MasterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.aspx.designer.cs">
+      <DependentUpon>MasterPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,7 +9,7 @@
     <title></title>
 </head>
 <body>
-   
+
     <ext:resourcemanager runat="server"></ext:resourcemanager>
 
     <form id="form1" runat="server">
