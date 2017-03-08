@@ -38,7 +38,7 @@ namespace ClassLibrary.Models
             DAL.insertSql("update Faculty set IsDeleted=1 Where ID=@ID", new MySqlParameter("@ID", this.ID));
         }
 
-        public List<Faculty> getFaculties(String filter)
+        public List<Faculty> getFaculties(string filter)
         {
 
             List<Faculty> result = new List<Faculty>();
