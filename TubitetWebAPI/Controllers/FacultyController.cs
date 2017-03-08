@@ -24,5 +24,20 @@ namespace TubitetWebAPI.Controllers
             return JsonConvert.SerializeObject(new Faculty().getFaculties(""));
         }
 
+        [HttpPost]
+        public string getFaculty(Faculty f) //  SOOOOOORRRRR
+        {
+
+            Faculty faculty = new Faculty()
+            {
+                ID = f.ID
+            };
+            faculty.getFaculty();
+ 
+
+            return JsonConvert.SerializeObject(faculty);
+
+        }
+
     }
 }

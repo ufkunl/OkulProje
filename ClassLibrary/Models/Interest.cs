@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ClassLibrary.Models
 {
-    class Interest
+    public class Interest
     {
 
         public int ID { get; set; }
@@ -18,8 +18,8 @@ namespace ClassLibrary.Models
         public int save()
         {
             if (this.ID == 0)
-            {
-                this.ID = DAL.insertSql("insert into Interest(InterestName) value(@InterestName)", new MySqlParameter("@InterestName", this.InterestName));
+            {                             
+                this.ID = DAL.insertSql("insert into Interest(InterestName) values (@InterestName)", new MySqlParameter("@InterestName", this.InterestName));
             }
             else
             {
@@ -44,7 +44,7 @@ namespace ClassLibrary.Models
 
             List<Interest> Interests = new List<Interest>();
 
-            DataTable data = DAL.readData("selecet * from Interest where IsDeleted = 0 and InterestName = @filter", new MySqlParameter("@filter", '%' + filter + '%'));
+            DataTable data = DAL.readData("select * from Interest where IsDeleted = 0 and InterestName Like @filter", new MySqlParameter("@filter", '%' + filter + '%'));
             
             foreach(DataRow row in data.Rows)
             {
