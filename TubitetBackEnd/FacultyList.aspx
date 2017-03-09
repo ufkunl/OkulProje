@@ -43,6 +43,7 @@
                     </Model>
                 </ext:Store>
             </Store>
+
             <ColumnModel>
                 <Columns>
                     <ext:RowNumbererColumn runat="server" Text="Sıra No" Width="80"></ext:RowNumbererColumn>
@@ -63,6 +64,7 @@
                     </ext:CommandColumn>
                 </Columns>
             </ColumnModel>
+
         </ext:GridPanel>
 
 
