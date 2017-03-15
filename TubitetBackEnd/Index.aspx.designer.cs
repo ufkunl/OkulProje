@@ -10,7 +10,7 @@
 namespace TubitetBackEnd {
     
     
-    public partial class MasterPage {
+    public partial class Index {
         
         /// <summary>
         /// TreePanel1 control.
@@ -29,14 +29,5 @@ namespace TubitetBackEnd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.TabPanel Pages;
-        
-        /// <summary>
-        /// TreePanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TreePanel TreePanel2;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ClassLibrary.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace TubitetWebAPI.Controllers
     public class UserController : ApiController
     {
 
-
+        [HttpPost]
         public int saveNewUser(User user)
         {
 
@@ -22,7 +23,13 @@ namespace TubitetWebAPI.Controllers
 
         }
 
-
+        //Kullanıcı varsa geriye json formatta nesne donuyor. yoksa nesne boş olarak dönüyor.
+        [HttpPost]
+        public string LoginControl(User user)
+        {
+            user.LoginControl();
+            return JsonConvert.SerializeObject(user);
+        }
 
 
 

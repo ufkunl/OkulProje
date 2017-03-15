@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ClassLibrary.Models
 {
-    class UserInterest
+    public class UserInterest
     {
 
         public int ID { get; set; }
@@ -15,7 +15,7 @@ namespace ClassLibrary.Models
         public Interest Interest{ get; set; }
         public Boolean IsDeleted{ get; set; }
 
-        public int save()
+        public int Save()
         {
 
             this.ID = DAL.insertSql("insert into UserInterest(UserID,InterestID) values(@UserID,@InterestID)", new List<MySqlParameter>() {

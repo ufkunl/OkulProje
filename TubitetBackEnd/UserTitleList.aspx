@@ -16,7 +16,7 @@
             <TopBar>
                 <ext:Toolbar runat="server">
                      <Items>
-                         <ext:Button ID="btnNewUserTitle" runat="server" Text="Yeni Ünvan Kartı" Margin="10" OnDirectClick="btnNewUserTitle_DirectClick"></ext:Button>
+                         <ext:Button ID="btnNewUserTitle" runat="server" Text="Yeni Ünvan Kartı" Margin="10" Icon="Add" OnDirectClick="btnNewUserTitle_DirectClick"></ext:Button>
                          <ext:TextField ID="txtFilter" runat="server" FieldLabel="Filter"></ext:TextField>
                          <ext:Button ID="btnFind" runat="server" Icon="Find" Text="Listele" Margin="10" OnDirectClick="btnFind_DirectClick">
                              <DirectEvents>
@@ -45,8 +45,8 @@
             <ColumnModel>
                 <Columns>
                     <ext:RowNumbererColumn runat="server" Text="Sıra No" Width="80"></ext:RowNumbererColumn>
-                    <ext:Column runat="server" Text="İlgi Alanı Adı" DataIndex="UserTitleName"></ext:Column>
-                    <ext:CommandColumn runat="server" ID="grdCommand">
+                    <ext:Column runat="server" Text="Ünvan Adı" DataIndex="UserTitleName" Flex="1"></ext:Column>
+                    <ext:CommandColumn runat="server" ID="grdCommand" Width="160">
                         <Commands>
                             <ext:GridCommand Icon="ApplicationEdit" CommandName="cmdUpdate" Text="Guncelle"></ext:GridCommand>
                             <ext:GridCommand CommandName="cmdDelete" Text="SİL" Icon="Delete"></ext:GridCommand>
@@ -65,7 +65,7 @@
         </ext:GridPanel>
 
 
-        <ext:Window runat="server" Title="İlgi Alanları Kartı" ID="wndNew" Width="350" Height="150" Modal="true" Hidden="true">
+        <ext:Window runat="server" Title="Ünvan Kartı" ID="wndNew" Width="350" Height="150" Modal="true" Hidden="true">
             <Items>
                 <ext:Hidden ID="hdnID" runat="server"></ext:Hidden>
                 <ext:TextField runat="server" ID="txtNewUserTitle" FieldLabel="Ünvan Adı" Margin="10"></ext:TextField>

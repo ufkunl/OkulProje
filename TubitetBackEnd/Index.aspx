@@ -1,14 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.aspx.cs" Inherits="TubitetBackEnd.MasterPage" %>
+﻿<%@ Page Language="C#" %>
 
+<%@ Import Namespace="System.Collections.Generic" %>
 
 <script runat="server">
-
     protected void Page_Load(object sender, EventArgs e)
     {
         SiteMapNode siteNode = SiteMap.RootNode;
         Node root = this.CreateNode(siteNode);
-        TreePanel1.Root.Add(root);
-
+    
         //dynamic tree root
         TreePanel2.Root.Add(this.CreateNodeWithOutChildren(siteNode));
     }
@@ -49,12 +48,15 @@
 
         if (!string.IsNullOrEmpty(siteMapNode.Url))
         {
-            treeNode.Href = this.Page.ResolveUrl(siteMapNode.Url);
+           
+            treeNode.CustomAttributes.Add(new ConfigItem("url", this.Page.ResolveUrl(siteMapNode.Url)));
+            //treeNode.Href = this.Page.ResolveUrl(siteMapNode.Url);
         }
 
         treeNode.NodeID = siteMapNode.Key;
         treeNode.Text = siteMapNode.Title;
         treeNode.Qtip = siteMapNode.Description;
+        
 
         return treeNode;
     }
@@ -68,7 +70,7 @@
         if (!string.IsNullOrEmpty(siteMapNode.Url))
         {
             treeNode.CustomAttributes.Add(new ConfigItem("url", this.Page.ResolveUrl(siteMapNode.Url)));
-            treeNode.Href = "#";
+            //treeNode.Href = "#";
         }
 
         treeNode.NodeID = siteMapNode.Key;
@@ -94,7 +96,7 @@
     }
 </script>
 
-
+<!DOCTYPE html>
 
 <html>
 <head runat="server">
@@ -111,7 +113,7 @@
                     title    : record.data.text,
                     closable : true,
                     loader : {
-                        url      : record.data.url,
+                        url      : record.data.id,
                         renderer     : "frame",
                         loadMask : {
                             showMask : true,
@@ -126,52 +128,47 @@
         };
     </script>
 </head>
-
 <body>
     <form runat="server">
         <ext:ResourceManager runat="server" />
 
         <ext:Viewport runat="server" Layout="BorderLayout">
-            <Items>
-                <ext:TreePanel
-                    ID="TreePanel1"
-                    runat="server"
-                    Region="West"
-                    Width="300"
-                    Title="Site Map - Preload"
-                    Icon="ChartOrganisation">
-                    <Listeners>
-                        <ItemClick Handler="if (record.data.url) { loadPage(#{Pages}, record); return false;}" />
-                    </Listeners>
-                </ext:TreePanel>
+            <Items>       
 
-
-
-                <ext:TabPanel
-                    ID="Pages"
-                    runat="server"
-                    Region="Center"/>
                 <ext:TreePanel
                     ID="TreePanel2"
                     runat="server"
-                    Region="East"
+                    Region="West"
+                    RootVisible="false"
                     Width="300"
-                    Title="Site Map - Dynamic"
+                    Title="Seçenekler"
+                    Collapsible="false"
                     Icon="ChartOrganisation">
+
                     <Listeners>
-                        <ItemClick Handler="if (record.data.url) { loadPage(#{Pages}, record); }" />
+                        <ItemClick Handler="loadPage(#{Pages}, record);" />
                     </Listeners>
                     <Store>
                         <ext:TreeStore runat="server" OnReadData="LoadPages">
                             <Proxy>
-                                <ext:PageProxy />
+                                 <ext:PageProxy/>
                             </Proxy>
                         </ext:TreeStore>
                     </Store>
                     <ViewConfig LoadMask="false" />
                 </ext:TreePanel>
+
+                <ext:TabPanel
+                    ID="Pages"
+                    runat="server"
+                    Region="Center"
+                    Border="true"
+                    Layout="AccordionLayout"
+                    Title="TÜBİTET"/>
+
             </Items>
         </ext:Viewport>
     </form>
 </body>
 </html>
+

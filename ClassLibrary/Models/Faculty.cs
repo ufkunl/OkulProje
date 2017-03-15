@@ -45,9 +45,11 @@ namespace ClassLibrary.Models
 
             DataTable data = DAL.readData("select * from Faculty where IsDeleted=0 and FacultyName Like @filter", new MySqlParameter("@filter", '%' + filter + '%'));
 
+            
+
             foreach(DataRow dr in data.Rows)
             {
-
+               
                 result.Add(
                     new Faculty
                     {

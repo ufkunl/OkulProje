@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TubitetBackEnd
 {
-    public partial class MasterPage : System.Web.UI.Page
+    public partial class Index : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
