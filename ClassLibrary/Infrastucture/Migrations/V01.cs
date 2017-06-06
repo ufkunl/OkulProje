@@ -15,13 +15,13 @@ namespace ClassLibrary.Infrastructure.Migrations
         {
 
             Create.Table("Faculty")
-                .WithColumn("ID").AsInt16().Identity().PrimaryKey()
+                .WithColumn("ID").AsInt32().Identity().PrimaryKey()
                 .WithColumn("FacultyName").AsString(128)
                 .WithColumn("IsDeleted").AsBoolean().WithDefaultValue(false);
 
             Create.Table("UserTitle")
                 .WithColumn("ID").AsInt32().Identity().PrimaryKey()
-                .WithColumn("UserTitleName").AsInt32()
+                .WithColumn("UserTitleName").AsString(128)
                 .WithColumn("IsDeleted").AsBoolean().WithDefaultValue(false);
 
             Create.Table("User")

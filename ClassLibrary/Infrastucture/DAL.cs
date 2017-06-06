@@ -32,13 +32,14 @@ namespace ClassLibrary.Infrastucture
 
                 returnValue = Convert.ToInt32(new MySqlCommand("select @@IDENTITY", conn, transaction)
                    .ExecuteScalar());
-
+                
                 transaction.Commit();
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
                 returnValue = -1;
+                
             }
 
             conn.Close();

@@ -109,7 +109,7 @@
 
             if (!tab) {
                 tab = tabPanel.add({
-                    id: "node" + record.data.hash,
+                    id: "node" + record.data.id,
                     title    : record.data.text,
                     closable : true,
                     loader : {

@@ -27,11 +27,23 @@ namespace TubitetWebAPI.Controllers
         [HttpPost]
         public string LoginControl(User user)
         {
-            user.LoginControl();
-            return JsonConvert.SerializeObject(user);
+            User u = new User();
+            u = user.LoginControl();
+            return JsonConvert.SerializeObject(u);
         }
 
 
+        [HttpPost]
+        public int ChangedState(User user) //user = activationcode + userıd + istene userstate
+        {
+            return user.ChangedState();
+        }
+
+        [HttpPost]
+        public int Delete(User user)
+        {    
+            return user.Delete();
+        }
 
     }
 }
